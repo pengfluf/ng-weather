@@ -3,6 +3,18 @@
     Angular Weather Application
   </h1>
   <p>Based on OpenWeatherMap API</p>
-  <input type="text" placeholder="City Name">
-  <button>Get Weather Forecast</button>
+  <input
+    #city
+    type="text"
+    placeholder="City ID (temporary)"
+    value="524901"
+  >
+  <button
+    (click)="getWeather(city.value)"
+  >
+    Get Weather Forecast
+  </button>
+  <div>
+    {{weather}}
+  </div>
 </div>
