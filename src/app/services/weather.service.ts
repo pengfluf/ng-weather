@@ -19,8 +19,20 @@ export class WeatherService {
     private http: HttpClient,
   ) { }
 
-  getWeather(id: number): Observable<any> {
-    return this.http.get<any>(`${this.api.url}?id=${id}&APPID=${this.api.key}`);
+  getWeather(query: number|string, countryCode: string): Observable<any> {
+    const regExpNumsOnly = new RegExp(/^\d+$/);
+
+    if (!regExpNumsOnly.test(`${query}`)) {
+      query.toString().trim();
+    }
+
+    countryCode.trim();
+    countryCode = `,${countryCode}`;
+
+    const queryType: string =
+      regExpNumsOnly.test(`${query}`) ? 'id' : 'q';
+
+    return this.http.get<any>(`${this.api.url}?${queryType}=${query}${countryCode}&APPID=${this.api.key}`);
   }
 
 }

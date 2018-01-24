@@ -3,18 +3,33 @@
     Angular Weather Application
   </h1>
   <p>Based on OpenWeatherMap API</p>
-  <input
-    #city
-    type="text"
-    placeholder="City ID (temporary)"
-    value="524901"
-  >
-  <button
-    (click)="getWeather(city.value)"
-  >
-    Get Weather Forecast
-  </button>
-  <div>
-    {{weather}}
-  </div>
+  <form>
+    <label>
+      City Name or ID (ISO):
+      <input
+        #city
+        type="text"
+        placeholder="City Name or ID (ISO)"
+        value="Moscow"
+        required
+      >
+    </label>
+    <label>
+      Country Code:
+      <input
+        #country
+        type="text"
+        placeholder="Country Code"
+        value="RU"
+        required
+      >
+    </label>
+    <button
+      type="submit"
+      (click)="getWeather(city.value, country.value)"
+    >
+      Get Weather Forecast
+    </button>
+  </form>
+  <h2 class="tempDanger">Temporarily ALL Fields are Required</h2>
 </div>
