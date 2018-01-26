@@ -1,0 +1,8 @@
+<p>
+  weather-day works!
+  {{data.day}}
+</p>
+<app-weather-hour
+  *ngFor="let hour of data.hours"
+  [data]="hour"
+></app-weather-hour>

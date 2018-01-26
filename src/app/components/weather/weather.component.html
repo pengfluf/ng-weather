@@ -3,6 +3,7 @@
     Angular Weather Application
   </h1>
   <p>Based on OpenWeatherMap API</p>
+
   <form>
     <label>
       City Name or ID (ISO):
@@ -31,5 +32,18 @@
       Get Weather Forecast
     </button>
   </form>
-  <h2 class="tempDanger">Temporarily ALL Fields are Required</h2>
+
+  <h2 class="tempDanger">
+    Temporarily ALL Fields are Required
+  </h2>
+
+<ul
+  class="weatherDayWrapper"
+  *ngIf="serverCode === 200"
+>
+  <app-weather-day
+    *ngFor="let day of days"
+    [data]="day"
+  ></app-weather-day>
+</ul>
 </div>
