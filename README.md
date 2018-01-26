@@ -11,13 +11,13 @@ ng serve
 ```
 
 ``` bash
-# Build
-ng build *-prod*
+# Build (-prod flag is optional)
+ng build -prod
 ```
 
 ``` bash
 # Code Scaffolding
-ng generate *component|directive|pipe|service|class|guard|interface|enum|module* *its name*
+ng generate component|directive|pipe|service|class|guard|interface|enum|module its_name
 ```
 
 ``` bash
@@ -26,6 +26,6 @@ ng test
 ```
 
 ``` bash
-# End to End Test
+# End to End Tests
 ng e2e
 ```
